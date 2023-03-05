@@ -1,0 +1,11 @@
+<%= button_to(
+      "Back",
+      "/",
+      method: :get
+    ) %>
+<% @likes.each do |like| %>
+  <div>
+    <%= like.sender_profile.name %>, <%= like.sender_profile.age %>
+    <%= image_tag(like.sender_profile.photo.file, style: "height:300px;width:auto;") %>
+  </div>
+<% end %>

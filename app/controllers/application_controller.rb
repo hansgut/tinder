@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_profile
+    current_user.profile
+  end
+
   protected
 
   def configure_permitted_params

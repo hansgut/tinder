@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_05_015514) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_05_212547) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_015514) do
     t.index ["sender_profile_id"], name: "index_likes_on_sender_profile_id"
   end
 
+  create_table "matches", force: :cascade do |t|
+    t.bigint "profile1_id", null: false
+    t.bigint "profile2_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile1_id"], name: "index_matches_on_profile1_id"
+    t.index ["profile2_id"], name: "index_matches_on_profile2_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.boolean "main"
     t.bigint "profile_id", null: false
@@ -86,6 +95,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_015514) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "likes", "profiles", column: "receiver_profile_id"
   add_foreign_key "likes", "profiles", column: "sender_profile_id"
+  add_foreign_key "matches", "profiles", column: "profile1_id"
+  add_foreign_key "matches", "profiles", column: "profile2_id"
   add_foreign_key "photos", "profiles"
   add_foreign_key "profiles", "users"
 end

@@ -5,3 +5,9 @@ one:
   sex: Male
   name: Hans
   user: one
+
+two:
+  description: Hi!
+  sex: Female
+  name: Hanna
+  user: two

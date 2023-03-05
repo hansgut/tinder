@@ -1,0 +1,12 @@
+<% @matches.each do |match| %>
+  <div>
+    <% if match.profile2_id == @profile_id %>
+      <%= image_tag match.profile1.photo.file, style: "height:300px;width:auto;" %>
+      <%= "#{match.profile1.name}, #{match.profile1.age}" %>
+    <% else %>
+      <%= image_tag match.profile2.photo.file, style: "height:300px;width:auto;" %>
+      <%= "#{match.profile2.name}, #{match.profile2.age}" %>
+    <% end %>
+  </div>
+  <br><br>
+<% end %>

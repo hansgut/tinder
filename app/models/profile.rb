@@ -11,4 +11,8 @@ class Profile < ApplicationRecord
   def complete?
     self.sex.present? && self.description.present? && self.name.present?
   end
+
+  def age
+    self.user.age
+  end
 end
