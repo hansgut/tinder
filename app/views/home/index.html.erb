@@ -1,5 +1,8 @@
 <h1>Home page</h1>
 <h2><%= "#{ current_user.profile.name }, #{ current_user.age }" %></h2>
+<div>
+  <%= image_tag current_user.profile.photo.file, style: "height:300px;width:auto;" %>
+</div>
 <h4>About me:</h4>
 <p><%= current_user.profile.description %></p>
 <%= link_to 'edit', edit_profile_path(current_user.profile) %>
