@@ -1,0 +1,13 @@
+<h1>Search</h1>
+<%= button_to(
+      "Home",
+      root_path,
+      method: :get
+    ) %>
+
+<% @profiles.each do |profile| %>
+  <%= image_tag profile.photo.file, style: "height:300px;width:auto;" %>
+  <h4><%= "#{ profile.name }, #{ profile.user.age }" %></h4>
+  <p><%= profile.description %></p>
+  <br><br>
+<% end %>
