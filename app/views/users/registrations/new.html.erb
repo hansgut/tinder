@@ -4,8 +4,8 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.email_field :name, autofocus: true %>
+    <%= f.label :birthday %><br />
+    <%= f.date_select :birthday, start_year: Date.current.year, end_year: 1920 %>
   </div>
 
   <div class="field">

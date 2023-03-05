@@ -1,0 +1,12 @@
+<h1>Home page</h1>
+<h2><%= "#{ current_user.profile.name }, #{ current_user.age }" %></h2>
+<h4>About me:</h4>
+<p><%= current_user.profile.description %></p>
+<%= link_to 'edit', edit_profile_path(current_user.profile) %>
+
+
+<%= button_to(
+      "Log Out",
+      destroy_user_session_path,
+      method: :delete
+    ) %>
