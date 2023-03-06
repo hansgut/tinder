@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_params
+    @disable_nav = true
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :birthday, :sex])
   end
 end
