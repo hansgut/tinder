@@ -14,43 +14,16 @@
         <%= f.label :description, class: "block text-gray-700 font-bold mb-2" %>
         <%= f.text_area :description, class: "block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
       </div>
+      <div class="mb-4">
+        <%= f.fields_for :photo do |photo_form| %>
+          <%= photo_form.label :file, "Photo", class: "block text-gray-700 font-bold mb-2" %>
+          <%= photo_form.file_field :file, class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", accept: "image/*" %>
+        <% end %>
+      </div>
+
       <div class="flex items-center justify-between">
         <%= f.submit "Save", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
       </div>
     <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
-
-<!--<h1>Profile</h1>-->
-<%#= form_for @profile do |f| %>
-<!--  <div class="field">-->
-    <%#= f.label :name %>
-    <%#= f.text_field :name %>
-<!--  </div>-->
-<!--  <div class="field">-->
-    <%#= f.label :sex %>
-    <%#= f.text_field :sex %>
-<!--  </div>-->
-<!--  <div class="field">-->
-    <%#= f.label :description %>
-    <%#= f.text_area :description %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= f.fields_for :photo do |photo_form| %>
-      <%#= photo_form.label :file %>
-      <%#= photo_form.file_field :file %>
-    <%# end %>
-<!--  </div>-->
-
-<!--  <div class="field">-->
-    <%#= f.submit %>
-<!--  </div>-->
-<%# end %>
