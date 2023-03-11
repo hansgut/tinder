@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   before_action :profile_params, only: :update
 
   def edit
+    @disable_nav = true
   end
 
   def update
