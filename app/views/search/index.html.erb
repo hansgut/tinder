@@ -1,13 +1,6 @@
-<h1>Search</h1>
-<%= button_to(
-      "Home",
-      root_path,
-      method: :get
-    ) %>
+<div class="flex w-full h-auto justify-center items-center">
+  <% @profiles.each_with_index do |profile, i| %>
+    <%= render "card", profile: profile, index: i %>
+  <% end %>
+</div>
 
-<% @profiles.each do |profile| %>
-  <%= image_tag profile.photo.file, style: "height:300px;width:auto;" %>
-  <h4><%= "#{ profile.name }, #{ profile.user.age }" %></h4>
-  <p><%= profile.description %></p>
-  <br><br>
-<% end %>

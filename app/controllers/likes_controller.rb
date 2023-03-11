@@ -8,16 +8,20 @@ class LikesController < ApplicationController
   end
 
   def create
-    if Like.create(likes_params)
-      redirect_to "index#search"
+    @like = Like.new(likes_params)
+    if @like.save
+      if @like.match?
+        @like.build_match
+      end
+      render json: { like: @like, match: @like.match? }
     else
-      render "search/index"
+      render json: { errors: @like.errors }
     end
   end
 
   private
 
   def likes_params
-    params.require(:like).permit(:receiver_profile_id, :sender_profile_id)
+    params.require(:like).permit(:receiver_profile_id).merge(sender_profile_id: current_profile.id)
   end
 end

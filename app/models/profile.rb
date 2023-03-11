@@ -15,4 +15,8 @@ class Profile < ApplicationRecord
   def age
     self.user.age
   end
+
+  def full_name
+    "#{self.name}, #{self.age}"
+  end
 end
