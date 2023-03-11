@@ -9,7 +9,7 @@ class Profile < ApplicationRecord
   accepts_nested_attributes_for :photo
 
   def complete?
-    self.sex.present? && self.description.present? && self.name.present?
+    self.sex.present? && self.description.present? && self.name.present? && self.photo.file.attached?
   end
 
   def age
