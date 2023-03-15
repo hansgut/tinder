@@ -11,4 +11,12 @@ class Match < ApplicationRecord
       match.profile1_id == profile_id ? match.profile2_id : match.profile1_id
     end
   end
+
+  def pair_profile(current_profile_id)
+    if self.profile1_id == current_profile_id
+      self.profile2
+    else
+      self.profile1
+    end
+  end
 end
