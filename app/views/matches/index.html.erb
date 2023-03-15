@@ -1,12 +1,30 @@
-<% @matches.each do |match| %>
-  <div>
-    <% if match.profile2_id == @profile_id %>
-      <%= image_tag match.profile1.photo.file, style: "height:300px;width:auto;" %>
-      <%= "#{match.profile1.name}, #{match.profile1.age}" %>
-    <% else %>
-      <%= image_tag match.profile2.photo.file, style: "height:300px;width:auto;" %>
-      <%= "#{match.profile2.name}, #{match.profile2.age}" %>
-    <% end %>
+<!-- component -->
+<div class="flex h-screen antialiased text-gray-800">
+  <div class="flex flex-row h-4/5 w-full overflow-x-hidden">
+    <div class="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">
+      <div class="flex flex-col">
+        <div class="flex flex-row items-center justify-between text-xs">
+          <span class="font-bold">Active Conversations</span>
+          <span
+            class="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full"
+          ><%= @pairs.count %></span
+          >
+        </div>
+        <div class="flex flex-col space-y-1 mt-4 -mx-2 h-auto overflow-y-auto">
+          <% @pairs.each do |pair| %>
+            <%= link_to match_path(3), class: "flex flex-row items-center hover:bg-gray-100 rounded-xl p-2" do %>
+              <div
+                class="flex items-center justify-center h-8 w-8 bg-indigo-200 rounded-full"
+              >
+                <%= pair.name.first %>
+              </div>
+              <div class="ml-2 text-sm font-semibold"><%= pair.name %></div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%= render "chat" if @match.present? %>
   </div>
-  <br><br>
-<% end %>
+</div>
+

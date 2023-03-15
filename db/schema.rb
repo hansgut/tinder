@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_05_212547) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_150743) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_212547) do
     t.index ["profile2_id"], name: "index_matches_on_profile2_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "profile_id", null: false
+    t.bigint "match_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_messages_on_match_id"
+    t.index ["profile_id"], name: "index_messages_on_profile_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.boolean "main"
     t.bigint "profile_id", null: false
@@ -97,6 +107,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_212547) do
   add_foreign_key "likes", "profiles", column: "sender_profile_id"
   add_foreign_key "matches", "profiles", column: "profile1_id"
   add_foreign_key "matches", "profiles", column: "profile2_id"
+  add_foreign_key "messages", "matches"
+  add_foreign_key "messages", "profiles"
   add_foreign_key "photos", "profiles"
   add_foreign_key "profiles", "users"
 end
