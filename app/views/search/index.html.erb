@@ -1,6 +1,10 @@
 <div class="flex w-full h-auto justify-center items-center">
-  <% @profiles.each_with_index do |profile, i| %>
-    <%= render "card", profile: profile, index: i %>
+  <% if @profiles.any? %>
+    <% @profiles.each_with_index do |profile, i| %>
+      <%= render "card", profile: profile, index: i %>
+    <% end %>
+  <% else %>
+    <div>No one here...</div>
   <% end %>
 </div>
 
