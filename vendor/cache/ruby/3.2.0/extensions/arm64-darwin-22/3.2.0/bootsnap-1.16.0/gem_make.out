@@ -1,0 +1,18 @@
+current directory: /Users/yan/Documents/projects/tinder/vendor/cache/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+/Users/yan/.rvm/rubies/ruby-3.2.1/bin/ruby -I /Users/yan/.rvm/rubies/ruby-3.2.1/lib/ruby/site_ruby/3.2.0 extconf.rb
+creating Makefile
+
+current directory: /Users/yan/Documents/projects/tinder/vendor/cache/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230316-29491-xjjmwt sitelibdir\=./.gem.20230316-29491-xjjmwt clean
+
+current directory: /Users/yan/Documents/projects/tinder/vendor/cache/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230316-29491-xjjmwt sitelibdir\=./.gem.20230316-29491-xjjmwt
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/yan/Documents/projects/tinder/vendor/cache/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230316-29491-xjjmwt sitelibdir\=./.gem.20230316-29491-xjjmwt install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20230316-29491-xjjmwt/bootsnap
+
+current directory: /Users/yan/Documents/projects/tinder/vendor/cache/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230316-29491-xjjmwt sitelibdir\=./.gem.20230316-29491-xjjmwt clean
