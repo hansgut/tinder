@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_15_150743) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_18_185900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_150743) do
     t.bigint "receiver_profile_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "dislike", default: false
     t.index ["receiver_profile_id"], name: "index_likes_on_receiver_profile_id"
     t.index ["sender_profile_id"], name: "index_likes_on_sender_profile_id"
   end
@@ -66,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_150743) do
     t.bigint "match_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "seen", default: false
     t.index ["match_id"], name: "index_messages_on_match_id"
     t.index ["profile_id"], name: "index_messages_on_profile_id"
   end

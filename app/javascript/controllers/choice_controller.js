@@ -29,7 +29,20 @@ export default class extends Controller {
     dislike(event) {
         event.preventDefault()
         const item = event.target.closest(".card")
-        item.remove()
-        console.log("disliked!")
+        const receiver_profile_id = item.querySelector(".profile-id").value
+
+        Rails.ajax({
+            url: "/dislike",
+            type: "POST",
+            data: `like[receiver_profile_id]=${receiver_profile_id}`,
+            success: (response) => {
+                console.log("disliked!")
+                console.log(response)
+                item.remove()
+            },
+            error: (response) => {
+                console.log(response);
+            }
+        });
     }
 }

@@ -19,6 +19,15 @@ class LikesController < ApplicationController
     end
   end
 
+  def dislike
+    @dislike = Like.new(likes_params.merge(dislike: true))
+    if @dislike.save
+      render json: { like: @dislike, match: @dislike.match? }
+    else
+      render json: { errors: @dislike.errors }
+    end
+  end
+
   private
 
   def likes_params

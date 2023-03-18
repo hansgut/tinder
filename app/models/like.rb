@@ -7,7 +7,7 @@ class Like < ApplicationRecord
   end
 
   def match?
-    Like.where(receiver_profile_id: self.sender_profile_id, sender_profile_id: self.receiver_profile_id).exists?
+    Like.where(receiver_profile_id: self.sender_profile_id, sender_profile_id: self.receiver_profile_id, dislike: false).exists?
   end
 
   def build_match
