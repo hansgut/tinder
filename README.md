@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Versions:
 
-Things you may want to cover:
+* Ruby 3.2.1
 
-* Ruby version
+* Rails 7.0.4.2
 
-* System dependencies
+* PostgreSQL 14.7
 
-* Configuration
+DB create:
 
-* Database creation
+* `rails db:create`
 
-* Database initialization
+* `rails db:migrate`
 
-* How to run the test suite
+Run app:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`./bin/dev`
