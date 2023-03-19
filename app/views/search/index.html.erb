@@ -3,8 +3,8 @@
     <% @profiles.each_with_index do |profile, i| %>
       <%= render "card", profile: profile, index: i %>
     <% end %>
-  <% else %>
-    <div>No one here...</div>
   <% end %>
+  <div style="z-index: -1;position: relative; height: calc(100vh - 120px)" class="flex items-center no-one-div"><p>No one here...</p></div>
 </div>
+
 

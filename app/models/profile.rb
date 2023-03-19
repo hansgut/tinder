@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  SEXES = ["Male", "Female"]
+  SEXES = ["", "Male", "Female"]
   belongs_to :user
   has_one :photo, dependent: :destroy, inverse_of: :profile
   has_many :sender_profile_likes, class_name: "Like", foreign_key: "sender_profile_id"

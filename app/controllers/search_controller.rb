@@ -3,9 +3,10 @@ class SearchController < ApplicationController
     profile_ids = Like.get_sent(current_profile).pluck(:receiver_profile_id)
     @preferences = current_profile.search_preference
     @profiles = Profile.joins("inner join users on users.id = profiles.user_id")
-                       .where("age(users.birthday) between interval '? years' and interval '? years' AND profiles.sex = ?",
-                              @preferences.min_age, @preferences.max_age, @preferences.sex)
+                       .where("age(users.birthday) between interval '? years' and interval '? years'",
+                              @preferences.min_age, @preferences.max_age)
                        .where.not(id: profile_ids << current_profile.id)
+    @profiles = @profiles.where(sex: @preferences.sex) if @preferences.sex.present?
   end
 
   def send_like
