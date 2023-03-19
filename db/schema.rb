@@ -67,7 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_225220) do
     t.bigint "match_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "seen", default: false
     t.index ["match_id"], name: "index_messages_on_match_id"
     t.index ["profile_id"], name: "index_messages_on_profile_id"
   end
@@ -92,8 +91,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_225220) do
 
   create_table "search_preferences", force: :cascade do |t|
     t.string "sex"
-    t.integer "min_age"
-    t.integer "max_age"
+    t.integer "min_age", default: 18
+    t.integer "max_age", default: 100
     t.bigint "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
