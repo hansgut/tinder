@@ -1,10 +1,12 @@
 class Profile < ApplicationRecord
+  SEXES = ["Male", "Female"]
   belongs_to :user
   has_one :photo, dependent: :destroy, inverse_of: :profile
   has_many :sender_profile_likes, class_name: "Like", foreign_key: "sender_profile_id"
   has_many :receiver_profile_likes, class_name: "Like", foreign_key: "receiver_profile_id"
+  has_one :search_preference
 
-  after_create :create_photo
+  after_create :create_photo, :create_search_preference
 
   accepts_nested_attributes_for :photo
 

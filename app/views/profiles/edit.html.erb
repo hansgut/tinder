@@ -7,8 +7,8 @@
         <%= f.text_field :name, class: "block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
       </div>
       <div class="mb-4">
-        <%= f.label :sex, class: "block text-gray-700 font-bold mb-2" %>
-        <%= f.text_field :sex, class: "block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+        <%= f.label :sex, class: "block mb-2 text-sm font-medium text-gray-900" %>
+        <%= f.select :sex, Profile::SEXES, {}, { class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" } %>
       </div>
       <div class="mb-4">
         <%= f.label :description, class: "block text-gray-700 font-bold mb-2" %>

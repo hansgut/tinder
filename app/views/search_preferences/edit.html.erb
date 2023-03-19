@@ -1,0 +1,23 @@
+<div class="max-w-md mx-auto bg-white rounded-md overflow-hidden">
+  <div class="px-6 py-4">
+    <h2 class="text-2xl font-bold mb-2">Search preferences</h2>
+    <%= form_for @search_preference do |f| %>
+      <div class="mb-4">
+        <%= f.label :sex, class: "block mb-2 text-sm font-medium text-gray-900" %>
+        <%= f.select :sex, Profile::SEXES, {}, { class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" } %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :min_age, class: "block text-gray-700 font-bold mb-2" %>
+        <%= f.number_field :min_age, { min: 18, class: "block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" } %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :max_age, class: "block text-gray-700 font-bold mb-2" %>
+        <%= f.number_field :max_age, { max: 100, class: "block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" } %>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <%= f.submit "Save", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+    <% end %>
+  </div>
+</div>
